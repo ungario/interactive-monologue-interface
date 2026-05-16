@@ -1,15 +1,12 @@
 {
     "name": "interactive-monologue-interface",
-    "version": "0.1",
+    "version": "0.1.0",
     "scripts": {
         "dev": "PORT=4234 next dev",
         "start": "next start",
         "build": "pnpm exec next build",
         "build:static": "NEXT_OUTPUT_EXPORT=1 pnpm exec next build",
-        "ship": "vercel --prod",
-        "version:major": "",
-        "version:minor": "",
-        "version:bug": ""
+        "ship": "vercel --prod"
     },
     "dependencies": {
         "next": "^16.2.4",

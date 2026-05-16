@@ -1,9 +1,9 @@
-import ChatBubbles from "./ChatBubbles";
-import Pfp from "./Pfp";
-import ChatProvider from "../state/ChatProvider";
-import ChatSrOnly from "./ChatSrOnly";
-import { getChatBubbleMap } from "../lib/read-bubbles";
-import { getActionButtonMap } from "../lib/read-actions";
+import ChatBubbles from './ChatBubbles';
+import Pfp from './Pfp';
+import ChatProvider from '../state/ChatProvider';
+import ChatSrOnly from './ChatSrOnly';
+import { getChatBubbleMap } from '../lib/read-bubbles';
+import { getActionButtonMap } from '../lib/read-actions';
 
 export default async function Monologue({
     locale,
@@ -24,14 +24,14 @@ export default async function Monologue({
                 }
                 return acc;
             },
-            [],
+            []
         );
         chatBubble.actions = newActions;
         chatBubble.actionIds = newActions.map((action) => action.id);
         chatBubbleArray.push(chatBubble);
     }
     const chatBubbleEntries: Array<[string, ChatBubble]> = chatBubbleArray.map(
-        (chatBubble) => [chatBubble.id, chatBubble],
+        (chatBubble) => [chatBubble.id, chatBubble]
     );
 
     return (

@@ -1,6 +1,12 @@
-# interactive monologue interface
+# interactive-monologue-interface
 
-chatbot-like interface for rendering localized chat bubbles based on user interaction
+## v1.0.0
+
+- [x] render chat bubbles based on server side json document
+- [x] interactive action buttons defined through json trigger new chat bubbles
+- [x] support i18n through mirrored json files
+- [x] render the chat bubble content eagerly with no oppacity for seo
+- [x] support routing to skip the requirement for action buttons
 
 ## outlook
 
