@@ -6,6 +6,46 @@ type ProjectProps = {
     item: ProjectItem;
 };
 
+type ProjectImagePreviewProps = {
+    image: string;
+    projectTitle: string;
+    onClose: () => void;
+};
+
+function ProjectImagePreview({
+    image,
+    projectTitle,
+    onClose,
+}: ProjectImagePreviewProps) {
+    return (
+        <div
+            className="project-modal-backdrop"
+            onClick={onClose}
+        >
+            <div
+                className="project-modal"
+                onClick={(event) => {
+                    event.stopPropagation();
+                }}
+            >
+                <button
+                    type="button"
+                    className="project-modal-close"
+                    aria-label="Close image preview"
+                    onClick={onClose}
+                >
+                    Close
+                </button>
+                <img
+                    className="project-modal-image"
+                    src={`/projects/${image}`}
+                    alt={`${projectTitle} screenshot expanded`}
+                />
+            </div>
+        </div>
+    );
+}
+
 export default function Project({ item }: ProjectProps) {
     const images = item.images ?? [];
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -76,35 +116,13 @@ export default function Project({ item }: ProjectProps) {
                 ) : null}
             </div>
             {selectedImage ? (
-                <div
-                    className="project-modal-backdrop"
-                    onClick={() => {
+                <ProjectImagePreview
+                    image={selectedImage}
+                    projectTitle={item.title}
+                    onClose={() => {
                         setSelectedImage(null);
                     }}
-                >
-                    <div
-                        className="project-modal"
-                        onClick={(event) => {
-                            event.stopPropagation();
-                        }}
-                    >
-                        <button
-                            type="button"
-                            className="project-modal-close"
-                            aria-label="Close image preview"
-                            onClick={() => {
-                                setSelectedImage(null);
-                            }}
-                        >
-                            Close
-                        </button>
-                        <img
-                            className="project-modal-image"
-                            src={`/projects/${selectedImage}`}
-                            alt={`${item.title} screenshot expanded`}
-                        />
-                    </div>
-                </div>
+                />
             ) : null}
         </div>
     );
