@@ -1,6 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
-import { visualTokenStreamingSpeed } from "../const/prefs";
 import { useTextStream } from "../hooks/useTextStream";
 import React, { forwardRef } from "react";
 type ChatBubbleProps = {

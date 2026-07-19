@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type ProjectProps = {
     item: ProjectItem;
@@ -18,10 +18,7 @@ function ProjectImagePreview({
     onClose,
 }: ProjectImagePreviewProps) {
     return (
-        <div
-            className="project-modal-backdrop"
-            onClick={onClose}
-        >
+        <div className="project-modal-backdrop" onClick={onClose}>
             <div
                 className="project-modal"
                 onClick={(event) => {
@@ -55,17 +52,17 @@ export default function Project({ item }: ProjectProps) {
 
         const previousOverflow = document.body.style.overflow;
         const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape") {
+            if (event.key === 'Escape') {
                 setSelectedImage(null);
             }
         };
 
-        document.body.style.overflow = "hidden";
-        window.addEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', handleKeyDown);
 
         return () => {
             document.body.style.overflow = previousOverflow;
-            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener('keydown', handleKeyDown);
         };
     }, [selectedImage]);
 
@@ -104,7 +101,7 @@ export default function Project({ item }: ProjectProps) {
                                                 event.currentTarget
                                                     .parentElement;
                                             if (button instanceof HTMLElement) {
-                                                button.style.display = "none";
+                                                button.style.display = 'none';
                                             }
                                         }}
                                     />

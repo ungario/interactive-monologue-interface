@@ -1,15 +1,15 @@
-"use client";
-import { Fragment, useContext, useEffect, useRef, useState } from "react";
-import ChatBubble from "../comp/ChatBubble";
-import useScrollDisabler from "../hooks/useScrollDisabler";
-import ActionButton from "../comp/ActionButton";
-import { ChatContext } from "../state/chatContext";
-import Project from "./Project";
+'use client';
+import { Fragment, useContext, useEffect, useRef, useState } from 'react';
+import ChatBubble from '../comp/ChatBubble';
+import useScrollDisabler from '../hooks/useScrollDisabler';
+import ActionButton from '../comp/ActionButton';
+import { ChatContext } from '../state/chatContext';
+import Project from './Project';
 
 export default function ChatBubbles() {
     const { state, dispatch } = useContext(ChatContext);
     const { isScrollDisabled } = useScrollDisabler(
-        !(state.chatBubbles.length > 1),
+        !(state.chatBubbles.length > 1)
     );
     const isNewChatBubble = useRef(true);
     const bubbleDomRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -18,9 +18,9 @@ export default function ChatBubbles() {
 
         const handleScroll = () => {};
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, [isScrollDisabled]);
 
@@ -35,7 +35,7 @@ export default function ChatBubbles() {
             const pfpHeight = window.innerWidth < 600 ? 48 : 80;
             const scrollPosition =
                 bubbleTop - viewportHeight / 2 + pfpHeight / 2;
-            window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+            window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
             if (ix !== currentIndex) {
                 // triggerHaptic()
             }
@@ -53,21 +53,21 @@ export default function ChatBubbles() {
     }, [state.chatBubbles.length]);
 
     return (
-        <div style={{ width: "100%" }}>
+        <div style={{ width: '100%' }}>
             <div className="chat-bubbles-spacer-block" />
             <div
                 {...{
                     style: {
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "10px",
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '10px',
                     },
                 }}
             >
                 {state.chatBubbles.map((chatBubble, ix) => {
                     const chatBubbleText = chatBubble.text;
                     const projectItems =
-                        chatBubble.id === "work" ? chatBubble.items : [];
+                        chatBubble.id === 'work' ? chatBubble.items : [];
                     return (
                         <Fragment key={ix}>
                             {chatBubbleText ? (
@@ -88,7 +88,7 @@ export default function ChatBubbles() {
                                                     action={action}
                                                     click={(
                                                         value: ActionButtonType,
-                                                        ready: Promise<void>,
+                                                        ready: Promise<void>
                                                     ) => {
                                                         dispatch(action.event);
                                                         isNewChatBubble.current = true;
