@@ -1,27 +1,18 @@
-Max Mustermann e.U.
+Michael Ungar e.U.
 
 Inhaber:
-Max Mustermann
+Michael Ungar
 
 Geschäftsanschrift:
-Musterstraße 1
-1010 Wien
+Pernerstorfergasse 49
+1100 Wien
 Österreich
 
 Telefon:
-+43 660 1234567
++43 677 614 514 90
 
 E-Mail:
-office@musterfirma.at
-
-Firmenbuchnummer:
-FN 123456a
-
-Firmenbuchgericht:
-Handelsgericht Wien
-
-UID:
-ATU12345678
+michael@ungar.io
 
 Unternehmensgegenstand:
 Unternehmensberatung im Bereich Informationstechnologie, Digitalisierung und IT-Strategie.
@@ -30,7 +21,7 @@ Gewerbe:
 Unternehmensberatung einschließlich der Unternehmensorganisation
 
 Gewerbebehörde:
-Magistratisches Bezirksamt für den ... Bezirk Wien
+Magistratisches Bezirksamt Ried im Innkreis
 
 Mitglied bei:
 Wirtschaftskammer Österreich,

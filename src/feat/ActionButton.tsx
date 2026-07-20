@@ -1,4 +1,5 @@
 import { ChatIcon } from "../comps/ChatIcon";
+import { LinkIcon } from "../comps/LinkIcon";
 
 type ActionButtonProps = {
   action: ActionButton;
@@ -23,12 +24,13 @@ export default function ActionButton(props: ActionButtonProps) {
       }/>}
       {action.label}
       {action.event.type === "link" ? (
-       <svg {...{
+     <LinkIcon {...{
           style: {
+            "height": "12px",
+            "width": "12px", 
             marginLeft: "10px",
-       }}} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fillRule="evenodd" clipRule="evenodd" d="M3.21934 12.78C3.35997 12.9205 3.55059 12.9993 3.74934 12.9993C3.94809 12.9993 4.13871 12.9205 4.27934 12.78L11.4993 5.56V11.25C11.4993 11.4489 11.5784 11.6397 11.719 11.7803C11.8597 11.921 12.0504 12 12.2493 12C12.4483 12 12.639 11.921 12.7797 11.7803C12.9203 11.6397 12.9993 11.4489 12.9993 11.25V3.75C12.9993 3.55109 12.9203 3.36032 12.7797 3.21967C12.639 3.07902 12.4483 3 12.2493 3H4.74934C4.55043 3 4.35966 3.07902 4.21901 3.21967C4.07836 3.36032 3.99934 3.55109 3.99934 3.75C3.99934 3.94891 4.07836 4.13968 4.21901 4.28033C4.35966 4.42098 4.55043 4.5 4.74934 4.5H10.4393L3.21934 11.72C3.07889 11.8606 3 12.0512 3 12.25C3 12.4488 3.07889 12.6394 3.21934 12.78Z" fill="black"/>
-        </svg>
+
+       }}} />
 
       ) : null}
       {action.event.type === "download" ? (

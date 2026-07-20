@@ -7,21 +7,21 @@
     }
   },
   "chat:work": {
-    "label": "Work",
+    "label": "Woran ich arbeite",
     "event": {
       "type": "chat",
       "value": "work"
     }
   },
   "chat:imprint": {
-    "label": "Imprint",
+    "label": "Impressum",
     "event": {
       "type": "chat",
       "value": "imprint"
     }
   },
   "chat:contact": {
-    "label": "Contact",
+    "label": "Kontakt",
     "event": {
       "type": "chat",
       "value": "contact"
