@@ -11,7 +11,7 @@
             "content":  "I build infrastructure for data to live in."
         }
     ],
-    "actionIds": ["chat:resume", "chat:work", "chat:contact"]
+    "actionIds": ["chat:work", "chat:contact", "chat:imprint"]
   },
   "about": {
     "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
@@ -54,7 +54,8 @@
     "actionIds": ["meet:mike"]
   },
   "imprint": {
-    "text": "Michael Ungar",
+    "type":"md",
+    "file": "imprint.md",
     "actionIds": ["mail:mike"]
   }
 }

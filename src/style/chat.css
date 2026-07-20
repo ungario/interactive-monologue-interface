@@ -9,6 +9,50 @@
     gap: 10px;
 }
 
+.markdown-response {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    z-index: 10;
+}
+
+.markdown-response-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 10px;
+    min-width: 0;
+}
+
+.markdown-response-actions {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+
+.markdown-content {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.markdown-content > :first-child {
+    margin-top: 0;
+}
+
+.markdown-content > :last-child {
+    margin-bottom: 0;
+}
+
+.markdown-content pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.markdown-content img {
+    height: auto;
+    max-width: 100%;
+}
+
 .pfp {
     position: absolute;
     top: 50%;

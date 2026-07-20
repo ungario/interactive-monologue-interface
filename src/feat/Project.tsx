@@ -70,13 +70,6 @@ export default function Project({ item }: ProjectProps) {
         <div className="project-section">
             <div className="chat-bubble-pfpspacer"></div>
             <div className="project-container">
-                <div className="project-header">
-                    <p className="project-time">{item.date}</p>
-                    <div className="project-title">
-                        <h2>{item.title}</h2>
-                        {item.subtitle ? <p>{item.subtitle}</p> : null}
-                    </div>
-                </div>
                 {images.length > 0 ? (
                     <div className="project-images-wrapper">
                         <div className="project-images">
@@ -111,6 +104,13 @@ export default function Project({ item }: ProjectProps) {
                         </div>
                     </div>
                 ) : null}
+                <div className="project-header">
+                    {/* <p className="project-time">{item.date}</p> */}
+                    <div className="project-title">
+                        <h2>{item.title}</h2>
+                        {item.subtitle ? <p>{item.subtitle}</p> : null}
+                    </div>
+                </div>
             </div>
             {selectedImage ? (
                 <ProjectImagePreview

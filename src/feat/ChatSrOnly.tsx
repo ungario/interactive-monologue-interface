@@ -10,6 +10,7 @@ export default function ChatSrOnly(props: ChatSrOnlyProps) {
                 <div key={chatBubble.id}>
                     <h1>{chatBubble.id}</h1>
                     {chatBubble.text ? <p>{chatBubble.text}</p> : null}
+                    {chatBubble.markdown ? <p>{chatBubble.markdown}</p> : null}
                 </div>
             ))}
         </div>

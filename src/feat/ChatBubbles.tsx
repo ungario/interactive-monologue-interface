@@ -11,6 +11,7 @@ import ActionButton from './ActionButton';
 import { ChatContext } from '../state/chatContext';
 import Project from './Project';
 import Chapter from './Chapter';
+import MarkdownProcessor from './MarkdownProcessor';
 
 export default function ChatBubbles() {
     const { state, dispatch } = useContext(ChatContext);
@@ -92,7 +93,15 @@ export default function ChatBubbles() {
                     ));
                     return (
                         <Fragment key={ix}>
-                            {chatBubbleTexts.length ? (
+                            {chatBubble.type === 'md' ? (
+                                <MarkdownProcessor
+                                    ref={(element) => {
+                                        bubbleDomRefs.current[ix] = element;
+                                    }}
+                                    markdown={chatBubble.markdown ?? ''}
+                                    actionButtons={actionButtons}
+                                />
+                            ) : chatBubbleTexts.length ? (
                                 <Chapter
                                     texts={chatBubbleTexts}
                                     setRef={(element) => {
@@ -105,7 +114,9 @@ export default function ChatBubbles() {
                                     actionButtons={actionButtons}
                                 />
                             ) : null}
-                            {!chatBubbleTexts.length && projectItems?.length ? (
+                            {chatBubble.type !== 'md' &&
+                            !chatBubbleTexts.length &&
+                            projectItems?.length ? (
                                 <div
                                     ref={(el) => {
                                         bubbleDomRefs.current[ix] = el;

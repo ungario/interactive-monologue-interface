@@ -19,14 +19,47 @@ async function readBubbleJson(locale: MonologueLocale) {
     }
 }
 
+async function resolveMarkdown(
+    chatBubble: ChatBubble,
+    locale: MonologueLocale,
+) {
+    if (chatBubble.type !== "md" || !chatBubble.file) {
+        return chatBubble;
+    }
+
+    const localeRoot = path.resolve(DATA_ROOT, locale);
+    const markdownPath = path.resolve(localeRoot, chatBubble.file);
+    const relativePath = path.relative(localeRoot, markdownPath);
+
+    if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+        throw new Error(`Markdown file must be inside ${localeRoot}`);
+    }
+
+    return {
+        ...chatBubble,
+        markdown: await readFile(markdownPath, "utf8"),
+    };
+}
+
 export async function getChatBubbleMap(locale: MonologueLocale) {
     try {
         const json = await readBubbleJson(locale);
+        const chatBubbleEntries = await Promise.all(
+            Object.entries(json).map(async ([key, value]) => {
+                const chatBubble = {
+                    ...(value as object),
+                    id: key,
+                } as ChatBubble;
+
+                return [
+                    key,
+                    await resolveMarkdown(chatBubble, locale),
+                ] as const;
+            }),
+        );
+
         return new Map<string, ChatBubble>(
-            Object.entries(json).map(([key, value]) => [
-                key,
-                { ...(value as object), id: key } as ChatBubble,
-            ]),
+            chatBubbleEntries,
         );
     } catch (e) {
         throw new Error("Failed to load bubbles JSON", {

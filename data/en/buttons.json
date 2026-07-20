@@ -13,6 +13,13 @@
       "value": "work"
     }
   },
+  "chat:imprint": {
+    "label": "Imprint",
+    "event": {
+      "type": "chat",
+      "value": "imprint"
+    }
+  },
   "chat:contact": {
     "label": "Contact",
     "event": {
