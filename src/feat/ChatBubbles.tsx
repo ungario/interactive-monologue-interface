@@ -1,10 +1,16 @@
 'use client';
-import { Fragment, useContext, useEffect, useRef, useState } from 'react';
-import ChatBubble from '../comp/ChatBubble';
+import {
+    Fragment,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import useScrollDisabler from '../hooks/useScrollDisabler';
-import ActionButton from '../comp/ActionButton';
+import ActionButton from './ActionButton';
 import { ChatContext } from '../state/chatContext';
 import Project from './Project';
+import Chapter from './Chapter';
 
 export default function ChatBubbles() {
     const { state, dispatch } = useContext(ChatContext);
@@ -53,7 +59,7 @@ export default function ChatBubbles() {
     }, [state.chatBubbles.length]);
 
     return (
-        <div style={{ width: '100%' }}>
+        <div style={{ width: '100%'}}>
             <div className="chat-bubbles-spacer-block" />
             <div
                 {...{
@@ -65,41 +71,41 @@ export default function ChatBubbles() {
                 }}
             >
                 {state.chatBubbles.map((chatBubble, ix) => {
-                    const chatBubbleText = chatBubble.text;
+                    const chatBubbleTexts = chatBubble.bubbles?.length
+                        ? [...chatBubble.bubbles]
+                              .sort((first, second) => first.order - second.order)
+                              .map((bubble) => bubble.content)
+                        : chatBubble.text
+                          ? [chatBubble.text]
+                          : [];
                     const projectItems =
                         chatBubble.id === 'work' ? chatBubble.items : [];
+                    const actionButtons = chatBubble.actions.map((action) => (
+                        <ActionButton
+                            key={action.id}
+                            action={action}
+                            click={() => {
+                                dispatch(action.event);
+                                isNewChatBubble.current = true;
+                            }}
+                        />
+                    ));
                     return (
                         <Fragment key={ix}>
-                            {chatBubbleText ? (
-                                <ChatBubble
-                                    ref={(el) => {
-                                        bubbleDomRefs.current[ix] = el;
+                            {chatBubbleTexts.length ? (
+                                <Chapter
+                                    texts={chatBubbleTexts}
+                                    setRef={(element) => {
+                                        bubbleDomRefs.current[ix] = element;
                                     }}
-                                    text={chatBubbleText}
                                     streamEnabled={
                                         state.chatBubbles.length - 1 === ix &&
                                         isNewChatBubble.current
                                     }
-                                    actionButtons={[
-                                        chatBubble.actions.map((action) => {
-                                            return (
-                                                <ActionButton
-                                                    key={action.id}
-                                                    action={action}
-                                                    click={(
-                                                        value: ActionButtonType,
-                                                        ready: Promise<void>
-                                                    ) => {
-                                                        dispatch(action.event);
-                                                        isNewChatBubble.current = true;
-                                                    }}
-                                                />
-                                            );
-                                        }),
-                                    ]}
+                                    actionButtons={actionButtons}
                                 />
                             ) : null}
-                            {!chatBubbleText && projectItems?.length ? (
+                            {!chatBubbleTexts.length && projectItems?.length ? (
                                 <div
                                     ref={(el) => {
                                         bubbleDomRefs.current[ix] = el;

@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { visualTokenStreamingSpeed } from "../const/prefs";
 
 export function useTextStream(textToDisplay: string, enabled: boolean) {
-  const [displayedText, setDisplayedText] = useState(textToDisplay);
+  const [displayedText, setDisplayedText] = useState(
+    enabled ? "" : textToDisplay,
+  );
   useEffect(() => {
     if (!enabled) {
       setDisplayedText(textToDisplay);

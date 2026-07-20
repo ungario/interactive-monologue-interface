@@ -1,15 +1,22 @@
 "use client";
 import { useTextStream } from "../hooks/useTextStream";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 type ChatBubbleProps = {
   text: string;
   actionButtons: React.ReactNode[];
   streamEnabled: boolean;
+  onStreamComplete?: () => void;
 };
 
 const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>((props, ref) => {
-  const { text, actionButtons, streamEnabled } = props;
+  const { text, actionButtons, streamEnabled, onStreamComplete } = props;
   const { displayText, done } = useTextStream(text, streamEnabled);
+
+  useEffect(() => {
+    if (streamEnabled && done) {
+      onStreamComplete?.();
+    }
+  }, [done, onStreamComplete, streamEnabled]);
 
   return (
     <div className="chat-bubble" ref={ref}>
@@ -17,6 +24,7 @@ const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>((props, ref) => {
       <div
         style={{
           display: "flex",
+          marginRight: "10px",
           flexDirection: "column",
           gap: "10px",
         }}
@@ -26,7 +34,7 @@ const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>((props, ref) => {
         >
           {displayText}
         </div>
-        <div
+        {actionButtons.length > 0 && <div
           style={{
             display: "flex",
             flexDirection: "row",
@@ -35,7 +43,7 @@ const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>((props, ref) => {
           }}
         >
           {actionButtons}
-        </div>
+        </div>}
       </div>
     </div>
   );

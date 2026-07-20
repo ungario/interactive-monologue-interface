@@ -5,7 +5,7 @@ const DATA_ROOT = path.join(process.cwd(), "data");
 const DEFAULT_LOCALE: MonologueLocale = "en";
 
 async function readActionJson(locale: MonologueLocale) {
-    const preferredPath = path.join(DATA_ROOT, locale, "actions.json");
+    const preferredPath = path.join(DATA_ROOT, locale, "buttons.json");
 
     try {
         return JSON.parse(await readFile(preferredPath, "utf8"));
@@ -14,7 +14,7 @@ async function readActionJson(locale: MonologueLocale) {
             throw error;
         }
 
-        const fallbackPath = path.join(DATA_ROOT, DEFAULT_LOCALE, "actions.json");
+        const fallbackPath = path.join(DATA_ROOT, DEFAULT_LOCALE, "buttons.json");
         return JSON.parse(await readFile(fallbackPath, "utf8"));
     }
 }

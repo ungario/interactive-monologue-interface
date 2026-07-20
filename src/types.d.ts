@@ -10,9 +10,15 @@ type ChatStore = {
 type ChatBubble = {
     id: string;
     text?: string;
+    bubbles?: ChatBubblePart[];
     items?: ProjectItem[];
     actions: ActionButton[];
     actionIds: string[];
+};
+
+type ChatBubblePart = {
+    order: number;
+    content: string;
 };
 
 type ProjectItem = {

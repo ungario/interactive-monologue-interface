@@ -1,6 +1,16 @@
 {
     "intro": {
-        "text": "Hi, ich bin Michael. Ich baue Infrastruktur für Daten.",
+        "text": "Hi! Ich bin Michael.",
+        "bubbles": [
+            {
+                "order": 1,
+                "content":  "Hi! Ich bin Michael."
+            },
+            {
+                "order": 2,
+                "content":  "Ich baue Infrastruktur für Daten."
+            }
+        ],
         "actionIds": ["chat:resume", "chat:work", "chat:contact"]
     },
     "about": {
