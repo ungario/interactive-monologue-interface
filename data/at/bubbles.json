@@ -3,6 +3,10 @@
         "text": "Servus, Michael hier! I spend most of my time  building tracking and management tools using Typescript. Ask me about my latest project.",
         "actionIds": ["chat:resume", "chat:work", "chat:contact"]
     },
+    "about": {
+        "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
+        "actionIds": ["link:rudi.at", "download:resume"]
+    },
     "resume": {
         "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
         "actionIds": ["link:rudi.at", "download:resume"]
@@ -30,5 +34,13 @@
     "contact": {
         "text": "I’d love to set up a meeting with you.",
         "actionIds": ["mail:mike", "link:github", "meet:mike", ""]
+    },
+    "meet": {
+        "text": "Lass uns einen Termin finden.",
+        "actionIds": ["meet:mike"]
+    },
+    "imprint": {
+        "text": "Michael Ungar",
+        "actionIds": ["mail:mike"]
     }
 }

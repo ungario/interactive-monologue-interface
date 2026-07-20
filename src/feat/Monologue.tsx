@@ -7,8 +7,12 @@ import { getActionButtonMap } from '../lib/read-actions';
 
 export default async function Monologue({
     locale,
+    initialChatBubbleId,
+    showIntroduction,
 }: {
     locale: MonologueLocale;
+    initialChatBubbleId: string;
+    showIntroduction: boolean;
 }) {
     const actionButtonMap = await getActionButtonMap(locale);
     const actionButtonKeys = [...actionButtonMap.keys()];
@@ -33,10 +37,17 @@ export default async function Monologue({
     const chatBubbleEntries: Array<[string, ChatBubble]> = chatBubbleArray.map(
         (chatBubble) => [chatBubble.id, chatBubble]
     );
+    const initialChatBubbleIds = [
+        ...(showIntroduction ? ['intro'] : []),
+        initialChatBubbleId,
+    ].filter((id, index, ids) => ids.indexOf(id) === index);
 
     return (
         <div>
-            <ChatProvider chatBubbleEntries={chatBubbleEntries}>
+            <ChatProvider
+                chatBubbleEntries={chatBubbleEntries}
+                initialChatBubbleIds={initialChatBubbleIds}
+            >
                 <ChatSrOnly chatBubbles={chatBubbleEntries.map((x) => x[1])} />
                 <Pfp />
                 <ChatBubbles />

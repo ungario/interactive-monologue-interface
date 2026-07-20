@@ -5,5 +5,11 @@ export const generateMetadata = () =>
     generateMonologueMetadata({ params: Promise.resolve({ locale: "at" }) });
 
 export default function Page() {
-    return <Monologue locale="at" />;
+    return (
+        <Monologue
+            locale="at"
+            initialChatBubbleId="intro"
+            showIntroduction
+        />
+    );
 }

@@ -3,11 +3,11 @@ import { generateMonologueMetadata } from "../../lib/meta";
 
 export const generateMetadata = () => generateMonologueMetadata();
 
-export default function About() {
+export default function Imprint() {
     return (
         <Monologue
             locale="en"
-            initialChatBubbleId="about"
+            initialChatBubbleId="imprint"
             showIntroduction={false}
         />
     );

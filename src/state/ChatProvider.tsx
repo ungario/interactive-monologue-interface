@@ -1,12 +1,12 @@
 "use client";
 import { useMemo, useReducer } from "react";
 import { ChatContext } from "./chatContext";
-import { initialChatBubbleIds } from "../const/prefs";
 import { chatReducerFactory } from "./chatReducer";
 
 type ChatProviderProps = {
   children: React.ReactNode;
   chatBubbleEntries: Array<[string, ChatBubble]>;
+  initialChatBubbleIds: string[];
 }
 
 export default function ChatProvider(props: ChatProviderProps) {
@@ -23,7 +23,7 @@ export default function ChatProvider(props: ChatProviderProps) {
     chatReducer,
     undefined,
     () => ({
-      chatBubbles: initialChatBubbleIds
+      chatBubbles: props.initialChatBubbleIds
         .map((id) => chatBubbleMap.get(id))
         .filter((chatBubble): chatBubble is ChatBubble => Boolean(chatBubble)),
     }),
