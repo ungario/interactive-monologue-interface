@@ -29,6 +29,6 @@
     },
     "contact": {
         "text": "I’d love to set up a meeting with you.",
-        "actionIds": ["mail:mike", "link:github", "meet:mike"]
+        "actionIds": ["mail:mike", "link:github", "meet:mike", ""]
     }
 }
