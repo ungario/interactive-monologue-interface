@@ -52,7 +52,7 @@
     "label": "resume.pdf",
     "event": {
       "type": "download",
-      "value": "https://bucket-kohl.vercel.app/resume.pdf"
+      "value": "/resume.pdf"
     }
   },
   "link:rudi.at": {

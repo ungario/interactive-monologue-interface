@@ -1,6 +1,6 @@
 {
     "intro": {
-        "text": "Servus, Michael hier! I spend most of my time  building tracking and management tools using Typescript. Ask me about my latest project.",
+        "text": "Hi, ich bin Michael. Ich baue Infrastruktur für Daten.",
         "actionIds": ["chat:resume", "chat:work", "chat:contact"]
     },
     "about": {

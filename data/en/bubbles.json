@@ -1,6 +1,6 @@
 {
   "intro": {
-    "text": "i am michael, i build infrastructure for data to live in.",
+    "text": "I am Michael. I build infrastructure for data to live in.",
     "actionIds": ["chat:resume", "chat:work", "chat:contact"]
   },
   "about": {
