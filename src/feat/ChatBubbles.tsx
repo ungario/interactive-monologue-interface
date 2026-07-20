@@ -114,19 +114,19 @@ export default function ChatBubbles() {
                                     actionButtons={actionButtons}
                                 />
                             ) : null}
-                            {chatBubble.type !== 'md' &&
-                            !chatBubbleTexts.length &&
-                            projectItems?.length ? (
-                                <div
-                                    ref={(el) => {
-                                        bubbleDomRefs.current[ix] = el;
-                                    }}
-                                />
-                            ) : null}
-                            {projectItems?.map((item) => (
+                            {projectItems?.map((item, projectIndex) => (
                                 <Project
                                     key={`${item.title}-${item.date}`}
                                     item={item}
+                                    ref={
+                                        !chatBubbleTexts.length &&
+                                        projectIndex === 0
+                                            ? (element) => {
+                                                  bubbleDomRefs.current[ix] =
+                                                      element;
+                                              }
+                                            : undefined
+                                    }
                                 />
                             ))}
                         </Fragment>

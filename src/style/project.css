@@ -2,12 +2,12 @@
     /* flex: 1; */
     /* min-width: 0; */
     /* padding: 0 1rem; */
+    
 }
 
 .project-header {
     font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 0.5em;
+    /* font-weight: 400; */
     display: flex;
     /* gap: 0px; */
     align-items: start;
@@ -44,7 +44,7 @@
     position: absolute;
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 80px;
     left: 0;
     overflow-x: scroll;
     scrollbar-width: none;
@@ -71,7 +71,7 @@
     display: block;
     height: 80px;
     aspect-ratio: 16/9;
-    background-color: gray;
+    /* background-color: red; */
     border-radius: 8px;
     object-fit: cover;
 }
@@ -81,9 +81,11 @@
     padding: 0;
     border: 0;
     background: transparent;
+    /* background: red; */
     cursor: pointer;
     flex-shrink: 0;
-    border-radius: 8px;
+    height: 80px;
+    aspect-ratio: 16/9;
 }
 
 .project-image-button:focus-visible {
@@ -95,11 +97,11 @@
     flex-direction: row;
     display: flex;
     gap: 0.5em;
-    margin-bottom: 1.4rem;
+    /* margin-bottom: 1.4rem; */
 }
 
 .project-images-wrapper {
-    padding-bottom: 100px;
+    padding-bottom: calc(80px + 8px);
     /* position: relative; */
 }
 

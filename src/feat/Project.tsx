@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 type ProjectProps = {
     item: ProjectItem;
@@ -43,7 +43,7 @@ function ProjectImagePreview({
     );
 }
 
-export default function Project({ item }: ProjectProps) {
+const Project = forwardRef<HTMLDivElement, ProjectProps>(({ item }, ref) => {
     const images = item.images ?? [];
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -67,7 +67,7 @@ export default function Project({ item }: ProjectProps) {
     }, [selectedImage]);
 
     return (
-        <div className="project-section">
+        <div className="project-section" ref={ref}>
             <div className="chat-bubble-pfpspacer"></div>
             <div className="project-container">
                 {images.length > 0 ? (
@@ -123,4 +123,8 @@ export default function Project({ item }: ProjectProps) {
             ) : null}
         </div>
     );
-}
+});
+
+Project.displayName = 'Project';
+
+export default Project;
