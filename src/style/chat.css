@@ -113,11 +113,16 @@
     border: 0px solid black;
     font-family: inherit;
     display: flex;
+    gap: 8px;
     color: black;
     font-weight: 500;
     align-items: center;
     cursor: pointer;
     background-color: whitesmoke;
+}
+
+.action-icon {
+    flex: 0 0 16px;
 }
 
 @media (max-width: 600px) {
