@@ -2,13 +2,14 @@
     /* flex: 1; */
     /* min-width: 0; */
     /* padding: 0 1rem; */
-    
+
 }
 
 .project-header {
     font-size: 14px;
     /* font-weight: 400; */
     display: flex;
+    padding: 0 10px;
     /* gap: 0px; */
     align-items: start;
 }
