@@ -38,7 +38,7 @@
         "date": "2026",
         "title": "kurplan.com",
         "subtitle": "moderne therapieplanung für ayuveda zentren",
-        "images": ["stp/shot-1.png", "stp/shot-2.png", "stp/shot-3.png"]
+        "images": ["tsi/shot-1.png", "tsi/shot-2.png", "tsi/shot-3.png"]
       }
     ],
     "actionIds": ["link:ia-web", "link:cal-prompt-transformer", "link:ledger"]
