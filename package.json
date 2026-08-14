@@ -2,10 +2,11 @@
     "name": "interactive-monologue-interface",
     "version": "0.1.0",
     "scripts": {
-        "dev": "PORT=4234 next dev",
+        "dev": "next dev",
         "start": "next start",
-        "build": "pnpm exec next build",
-        "build:static": "NEXT_OUTPUT_EXPORT=1 pnpm exec next build",
+        "build": "next build",
+        "build:static": "NEXT_OUTPUT_EXPORT=1 next build",
+        "sites": "trash ~/Sites/imi && cp -R ./out ~/Sites/imi",
         "ship": "vercel --prod"
     },
     "dependencies": {
