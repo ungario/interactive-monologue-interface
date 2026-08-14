@@ -9,6 +9,8 @@ type ChatStore = {
 
 type ChatBubble = {
     id: string;
+    title: string;
+    order: number;
     type?: "md";
     file?: string;
     markdown?: string;

@@ -1,61 +1,74 @@
-{
-  "intro": {
+[
+  {
+    "id": "intro",
+    "title": "Introduction",
+    "order": 1,
     "text": "Hi! I am Michael. I build infrastructure for data to live in.",
     "bubbles": [
-        {
-            "order": 1,
-            "content":  "Hi! I am Michael."
-        },
-        {
-            "order": 2,
-            "content":  "I build infrastructure for data to live in."
-        }
+      {
+        "order": 1,
+        "content": "Hi! I am Michael."
+      },
+      {
+        "order": 2,
+        "content": "I build infrastructure for data to live in."
+      }
     ],
     "actionIds": ["chat:work", "chat:contact", "chat:imprint"]
   },
-  "about": {
+  {
+    "id": "about",
+    "title": "About",
+    "order": 2,
     "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
     "actionIds": ["link:rudi.at", "download:resume"]
   },
-  "resume": {
+  {
+    "id": "resume",
+    "title": "Résumé",
+    "order": 3,
     "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
     "actionIds": ["link:rudi.at", "download:resume"]
   },
-  "work": {
+  {
+    "id": "work",
+    "title": "Work",
+    "order": 4,
     "items": [
-        {
-            "date": "2025 — 2026",
-            "title": "intelligent-athletics.com",
-            "subtitle": "",
-            "images": [
-                "iaw/shot-1.png",
-                "iaw/shot-2.png",
-                "iaw/shot-3.png"
-            ]
-        },
-        {
-            "date": "2026",
-            "title": "plan.somaed.at",
-            "images": [
-                "stp/shot-1.png",
-                "stp/shot-2.png",
-                "stp/shot-3.png"
-            ]
-        }
-    ], 
+      {
+        "date": "2025 — 2026",
+        "title": "intelligent-athletics.com",
+        "subtitle": "",
+        "images": ["iaw/shot-1.png", "iaw/shot-2.png", "iaw/shot-3.png"]
+      },
+      {
+        "date": "2026",
+        "title": "plan.somaed.at",
+        "images": ["stp/shot-1.png", "stp/shot-2.png", "stp/shot-3.png"]
+      }
+    ],
     "actionIds": ["link:ia-web", "link:cal-prompt-transformer", "link:ledger"]
   },
-  "contact": {
+  {
+    "id": "contact",
+    "title": "Contact",
+    "order": 5,
     "text": "I’d love to set up a meeting with you.",
     "actionIds": ["mail:mike", "link:github", "meet:mike"]
   },
-  "meet": {
+  {
+    "id": "meet",
+    "title": "Meet",
+    "order": 6,
     "text": "Let’s find a time to meet.",
     "actionIds": ["meet:mike"]
   },
-  "imprint": {
-    "type":"md",
+  {
+    "id": "imprint",
+    "title": "Imprint",
+    "order": 7,
+    "type": "md",
     "file": "imprint.md",
     "actionIds": ["mail:mike"]
   }
-}
+]

@@ -1,58 +1,74 @@
-{
-    "intro": {
-        "text": "Hi! Ich bin Michael.",
-        "bubbles": [
-            {
-                "order": 1,
-                "content":  "Hi! Ich bin Michael."
-            },
-            {
-                "order": 2,
-                "content":  "Ich baue Infrastruktur für Daten."
-            }
-        ],
-        "actionIds": ["chat:work", "chat:contact", "chat:imprint"]
-    },
-    "about": {
-        "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
-        "actionIds": ["link:rudi.at", "download:resume"]
-    },
-    "resume": {
-        "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
-        "actionIds": ["link:rudi.at", "download:resume"]
-    },
-    "work": {
-        "items": [
-            {
-                "date": "2025 — 2026",
-                "title": "intelligent-athletics.com",
-                "subtitle": "coaching dashbaord für übersicht im leistungssport",
-                "images": ["iaw/shot-1.png", "iaw/shot-2.png", "iaw/shot-3.png", "iaw/shot-4.png"]
-            },
-            {
-                "date": "2026",
-                "title": "kurplan.com",
-                "subtitle": "moderne therapieplanung für ayuveda zentren",
-                "images": ["stp/shot-1.png", "stp/shot-2.png", "stp/shot-3.png"]
-            }
-        ],
-        "actionIds": [
-            "link:ia-web",
-            "link:cal-prompt-transformer",
-            "link:ledger"
-        ]
-    },
-    "contact": {
-        "text": "I’d love to set up a meeting with you.",
-        "actionIds": ["mail:mike", "link:github", "meet:mike", ""]
-    },
-    "meet": {
-        "text": "Lass uns einen Termin finden.",
-        "actionIds": ["meet:mike"]
-    },
-    "imprint": {
-        "type":"md",
-        "file": "imprint.md",
-        "actionIds": ["mail:mike"]
-    }
-}
+[
+  {
+    "id": "intro",
+    "title": "Einleitung",
+    "order": 1,
+    "bubbles": [
+      {
+        "order": 1,
+        "content": "Hi! Ich bin Michael."
+      },
+      {
+        "order": 2,
+        "content": "Ich baue Infrastruktur für Daten."
+      }
+    ],
+    "actionIds": ["chat:work", "chat:contact", "chat:imprint"]
+  },
+  {
+    "id": "about",
+    "title": "Über mich",
+    "order": 2,
+    "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
+    "actionIds": ["link:rudi.at", "download:resume"]
+  },
+  {
+    "id": "resume",
+    "title": "Résumé",
+    "order": 3,
+    "text": "Currently I am working at UNIQA for an corporate startup, contributing to feature development across both the frontend and backend.",
+    "actionIds": ["link:rudi.at", "download:resume"]
+  },
+  {
+    "id": "work",
+    "title": "Woran ich arbeite",
+    "order": 4,
+    "items": [
+      {
+        "date": "2025 — 2026",
+        "title": "intelligent-athletics.com",
+        "subtitle": "coaching dashbaord für übersicht im leistungssport",
+        "images": ["iaw/shot-1.png", "iaw/shot-2.png", "iaw/shot-3.png", "iaw/shot-4.png"]
+      },
+      {
+        "date": "2026",
+        "title": "kurplan.com",
+        "subtitle": "moderne therapieplanung für ayuveda zentren",
+        "images": ["stp/shot-1.png", "stp/shot-2.png", "stp/shot-3.png"]
+      }
+    ],
+    "actionIds": ["link:ia-web", "link:cal-prompt-transformer", "link:ledger"]
+  },
+  {
+    "id": "contact",
+    "title": "Kontakt",
+    "order": 5,
+    "text": "I’d love to set up a meeting with you.",
+    "actionIds": ["mail:mike", "link:github", "meet:mike", ""]
+  },
+  {
+    "id": "meet",
+    "title": "Termin",
+    "order": 6,
+    "text": "Lass uns einen Termin finden.",
+    "actionIds": ["meet:mike"]
+  },
+  {
+    "id": "imprint",
+    "title": "Impressum",
+    "order": 7,
+    "type": "md",
+    "file": "imprint.md",
+    "actionIds": ["mail:mike"]
+  }
+]

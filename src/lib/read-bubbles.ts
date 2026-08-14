@@ -44,23 +44,20 @@ async function resolveMarkdown(
 export async function getChatBubbleMap(locale: MonologueLocale) {
     try {
         const json = await readBubbleJson(locale);
+        if (!Array.isArray(json)) {
+            throw new TypeError("Bubbles JSON must contain an array");
+        }
+
         const chatBubbleEntries = await Promise.all(
-            Object.entries(json).map(async ([key, value]) => {
-                const chatBubble = {
-                    ...(value as object),
-                    id: key,
-                } as ChatBubble;
-
-                return [
-                    key,
+            [...(json as ChatBubble[])]
+                .sort((first, second) => first.order - second.order)
+                .map(async (chatBubble) => [
+                    chatBubble.id,
                     await resolveMarkdown(chatBubble, locale),
-                ] as const;
-            }),
+                ] as const),
         );
 
-        return new Map<string, ChatBubble>(
-            chatBubbleEntries,
-        );
+        return new Map<string, ChatBubble>(chatBubbleEntries);
     } catch (e) {
         throw new Error("Failed to load bubbles JSON", {
             cause: e as Error,
